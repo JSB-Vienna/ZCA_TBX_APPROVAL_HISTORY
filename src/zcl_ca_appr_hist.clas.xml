@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_APPR_HIST</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add approver (= receiver) for next approval level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Display approval history</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get approval history data to this key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get prepared data for output in descending order</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_CURRENT_CYCLE_N_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get current approval cycle and level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_FROM_DB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get approval history from data base</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_LAST_ENTRY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get approval history data to this key</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get approval history data to requested level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>HAS_OPEN_APPROVALS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether open approvals exist</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INCREASE_CYCLE_DUE_2_REJECTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Increase cycle counter due to a rejection</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Insert new entry into database table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check if last approval cycle is rejected</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_RESULT_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants for approval history result</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_BO_KEY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Business object/class key - BOR Compatible</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_APPR_HIST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval history data (in descending order)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CURRENT_CYCLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current cycle number</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_CURR_APPR_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current approval level</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_LAST_SEQNO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Last sequential number</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_APPROVERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replacing approvers in open approval history entries</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>UPDATE_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update approval history entry in database table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update approval history entry with approval result</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <SCONAME>IV_APPROVER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>User Id of approving (= receiving) person</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <SCONAME>IV_FOR_LEVEL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval level (initial value increases automatically by 1)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Key to identify receiver for approval</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_APPROVER</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IS_BO_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Business object/class key - BOR Compatible</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IO_PARENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>GUI container for display anywhere, else display in a popup</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IS_POPUP_CORNERS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Definition of the popup corner points</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_CNT_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name of the ALV control/container</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_OBJ_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval history data</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
+     <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared approval history data in descending order</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CURRENT_CYCLE_N_LEVEL</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current approval cycle and level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_ENTRY</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Last approval history entry</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
+     <SCONAME>IV_APPROVAL_LEVEL</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Last approval history entry to level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>HAS_OPEN_APPROVALS</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Open approvals exist for current level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
+     <SCONAME>IS_NEW_ENTRY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>New approval history entry</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Last approval cycle is rejected</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_APPROVERS</CMPNAME>
+     <SCONAME>IT_NEW_APPROVERS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>New user Id to be set</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_APPROVERS</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_APPROVERS</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPDATE_RESULT</CMPNAME>
+     <SCONAME>CR_APPR_ENTRY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval history entry with changed result values</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPDATE_RESULT</CMPNAME>
+     <SCONAME>IS_APPR_ENTRY_BACKUP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Copy of the last state of the approval entry</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>UPDATE_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>IS_APPR_SEQ_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval sequence key for approval result assignment</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>IV_ACTUAL_APPROVER</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>User Id of approving / rejecting person</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>IV_APPROVAL_RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result (use mo_result_values-&gt;*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>IV_REASON</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Reason / comment to approval decision</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_DBACC</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Database access</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_PARAM</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

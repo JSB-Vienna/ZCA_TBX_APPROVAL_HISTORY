@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_APPR_HIST_ALV</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: ALV list with approval history</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_APPR_HIST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_POPUP_CORNERS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Definition of the popup corner points</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_APPROVAL_LIST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval history data prepared for output</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_FOR_LAST_CYCLE_ONLY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Activate ALV filter to display only the last cycle</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_OBJ_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval history handler</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_PARENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>GUI Container to display</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IS_POPUP_CORNERS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Definition of the popup corner points/</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_CNT_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name of the ALV control/container</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_OBJ_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

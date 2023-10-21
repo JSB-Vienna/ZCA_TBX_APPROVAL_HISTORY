@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_C_APPROVAL_RESULT</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Constants for approval history result</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>AIO</KEY>
+     <ENTRY>Approval is open</ENTRY>
+     <LENGTH>26</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>APR</KEY>
+     <ENTRY>Approved</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>OAP</KEY>
+     <ENTRY>Object is approved</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>OPN</KEY>
+     <ENTRY>Open</ENTRY>
+     <LENGTH>14</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>ORJ</KEY>
+     <ENTRY>Object is rejected</ENTRY>
+     <LENGTH>28</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>REJ</KEY>
+     <ENTRY>Rejected</ENTRY>
+     <LENGTH>18</LENGTH>
+    </item>
+   </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>AIO</KEY>
+       <ENTRY>Freigabe ist offen</ENTRY>
+       <LENGTH>26</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>APR</KEY>
+       <ENTRY>Freigegeben</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OAP</KEY>
+       <ENTRY>Objekt ist freigegeben</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OPN</KEY>
+       <ENTRY>Offen</ENTRY>
+       <LENGTH>14</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>ORJ</KEY>
+       <ENTRY>Objekt ist abgelehnt</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>REJ</KEY>
+       <ENTRY>Abgelehnt</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+    <item>
+     <LANGUAGE>W</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>AIO</KEY>
+       <ENTRY>Одобрението е отворено</ENTRY>
+       <LENGTH>26</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>APR</KEY>
+       <ENTRY>Одобрен</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OAP</KEY>
+       <ENTRY>Обектът е одобрен</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OPN</KEY>
+       <ENTRY>Отворен</ENTRY>
+       <LENGTH>14</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>ORJ</KEY>
+       <ENTRY>Обектът е отхвърлен</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>REJ</KEY>
+       <ENTRY>отказа</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+    <item>
+     <LANGUAGE>d</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>AIO</KEY>
+       <ENTRY>Odobrenje is otvoreno</ENTRY>
+       <LENGTH>26</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>APR</KEY>
+       <ENTRY>Odobreno</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OAP</KEY>
+       <ENTRY>Objekat is odobreno</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>OPN</KEY>
+       <ENTRY>Otvoreno</ENTRY>
+       <LENGTH>14</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>ORJ</KEY>
+       <ENTRY>Objekat is odbijeno</ENTRY>
+       <LENGTH>28</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>REJ</KEY>
+       <ENTRY>Odbijeno</ENTRY>
+       <LENGTH>18</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>APPROVAL_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result: Technical values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>APPROVAL_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result: Textual values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COLUMN_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Column names for approval list</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert approval result into an icon with quick info</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get instance</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert approval result into a text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid approval result passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RESULT_ICON</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result: Textual values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SINGLETON_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Instance of the class itself</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Icon with quick info</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class instance</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

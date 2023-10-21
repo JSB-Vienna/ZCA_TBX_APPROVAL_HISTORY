@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_DTEL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD04V>
+    <ROLLNAME>ZCA_D_APPROVAL_RESULT</ROLLNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <DOMNAME>ZCA_APPROVAL_RESULT</DOMNAME>
+    <HEADLEN>25</HEADLEN>
+    <SCRLEN1>10</SCRLEN1>
+    <SCRLEN2>15</SCRLEN2>
+    <SCRLEN3>25</SCRLEN3>
+    <DDTEXT>CA-TBX: Result of decision (approved/rejected)</DDTEXT>
+    <REPTEXT>Result of decision</REPTEXT>
+    <SCRTEXT_S>Result</SCRTEXT_S>
+    <SCRTEXT_M>Result</SCRTEXT_M>
+    <SCRTEXT_L>Result of decision</SCRTEXT_L>
+    <DTELMASTER>E</DTELMASTER>
+    <REFKIND>D</REFKIND>
+   </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+    <LANGU>W</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>WFP: Ergebnis der Entscheidung (genehmigt/abgelehnt)</DDTEXT>
+     <REPTEXT>Ergebnis der Entscheidung</REPTEXT>
+     <SCRTEXT_S>Ergebnis</SCRTEXT_S>
+     <SCRTEXT_M>Ergebnis</SCRTEXT_M>
+     <SCRTEXT_L>Ergebnis der Entscheidung</SCRTEXT_L>
+    </item>
+    <item>
+     <DDLANGUAGE>W</DDLANGUAGE>
+     <SCRTEXT_S>Резултат</SCRTEXT_S>
+     <SCRTEXT_M>Резултат</SCRTEXT_M>
+    </item>
+   </DD04_TEXTS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
