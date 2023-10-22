@@ -29,27 +29,27 @@ CLASS ZCL_CA_APPR_HIST_APM IMPLEMENTATION.
          VALUE #(
             group_id        = 'itinere.at'
             artifact_id     = 'zca_tbx_approval_history'
-            version         = '0.1.0'
+            version         = '1.0.0'
             repository_type = 'abapGit'
             git_url         = 'https://github.com/JSB-Vienna/zca_tbx_approval_history.git'
             dependencies    =
                   VALUE #(
                         group_id       = 'itinere.at'
-                      ( artifact_id    = 'zca_tbx_base'
-                        git_url        = 'https://github.com/JSB-Vienna/zca_tbx_base.git'
-                        version        = '0.1.0'
-                        target_package = 'zca_tbx_base' )
+                      ( artifact_id    = 'zca_toolbox'
+                        git_url        = 'https://github.com/JSB-Vienna/zca_toolbox.git'
+                        version        = '1.0.0'
+                        target_package = 'zca_toolbox' )
                       ( artifact_id    = 'zca_tbx_alv'
                         git_url        = 'https://github.com/JSB-Vienna/zca_tbx_alv.git'
-                        version        = '0.1.0'
+                        version        = '1.0.0'
                         target_package = 'zca_tbx_alv' )
                       ( artifact_id    = 'zca_tbx_screen_framework'
                         git_url        = 'https://github.com/JSB-Vienna/zca_tbx_screen_framework.git'
-                        version        = '0.1.0'
+                        version        = '1.0.0'
                         target_package = 'zca_tbx_screen_framework' )
                       ( artifact_id    = 'zca_screen_reusables'
                         git_url        = 'https://github.com/JSB-Vienna/zca_tbx_screen_reusables.git'
-                        version        = '0.1.0'
+                        version        = '1.0.0'
                         target_package = 'zca_tbx_screen_reusables' ) ) ) ##no_text.
   ENDMETHOD.                    "constructor
 ENDCLASS.
