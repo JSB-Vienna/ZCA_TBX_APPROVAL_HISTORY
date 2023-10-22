@@ -10,6 +10,7 @@ This package requires the following packages, which have to be imported in the o
 * [ZCA_TBX_ALV (ALV wrapper)](https://github.com/JSB-Vienna/ZCA_TBX_ALV.git)
 * [ZCA_TBX_SCREEN_FRAMEWORK (Class framework to handle GUI screens)](https://github.com/JSB-Vienna/ZCA_TBX_SCREEN_FRAMEWORK.git)
 * [ZCA_TBX_SCREEN_REUSABLES (Reusable GUI screens based on the screen framework)](https://github.com/JSB-Vienna/ZCA_TBX_SCREEN_REUSABLES.git)
+* [ZCA_TBX_WORKFLOW (Workflow related utilities)](https://github.com/JSB-Vienna/ZCA_TBX_WORKFLOW.git)
 
 Currently, the APACK information is not as resolved as I expected. May I have misunderstood something, but the required packages should be imported automatically if ABABGit is used and APM classes are defined for the sub-packages. Have a [look here](https://docs.abapgit.org/user-guide/reference/apack.html) for more details.
 
