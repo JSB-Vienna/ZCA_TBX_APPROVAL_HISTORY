@@ -146,13 +146,13 @@
      <CMPNAME>ADD_APPROVER</CMPNAME>
      <SCONAME>ZCX_CA_DBACC</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Database access</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Database access</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_APPROVER</CMPNAME>
      <SCONAME>ZCX_CA_PARAM</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -164,7 +164,7 @@
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
@@ -200,7 +200,7 @@
      <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET</CMPNAME>
@@ -260,7 +260,7 @@
      <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
      <SCONAME>ZCX_CA_DBACC</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Database access</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Database access</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
@@ -278,13 +278,13 @@
      <CMPNAME>REPLACE_APPROVERS</CMPNAME>
      <SCONAME>ZCX_CA_DBACC</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Database access</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Database access</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>REPLACE_APPROVERS</CMPNAME>
      <SCONAME>ZCX_CA_PARAM</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>UPDATE_RESULT</CMPNAME>
@@ -302,7 +302,7 @@
      <CMPNAME>UPDATE_RESULT</CMPNAME>
      <SCONAME>ZCX_CA_DBACC</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Database access</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Database access</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
@@ -332,13 +332,13 @@
      <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
      <SCONAME>ZCX_CA_DBACC</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Database access</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Database access</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>WRITE_APPROVAL_RESULT</CMPNAME>
      <SCONAME>ZCX_CA_PARAM</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Parameter error (INHERIT from this excep!)</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>

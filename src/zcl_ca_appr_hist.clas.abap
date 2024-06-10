@@ -36,8 +36,8 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! @parameter iv_approver  | <p class="shorttext synchronized" lang="en">User Id of approving (= receiving) person</p>
       "! @parameter iv_for_level | <p class="shorttext synchronized" lang="en">Approval level (initial value increases automatically by 1)</p>
       "! @parameter result       | <p class="shorttext synchronized" lang="en">Key to identify receiver for approval</p>
-      "! @raising   zcx_ca_param | <p class="shorttext synchronized" lang="en">Common exception: Parameter error (INHERIT from this excep!)</p>
-      "! @raising   zcx_ca_dbacc | <p class="shorttext synchronized" lang="en">Common exception: Database access</p>
+      "! @raising   zcx_ca_param | <p class="shorttext synchronized" lang="en">CA-TBX exception: Parameter error (INHERIT from this excep!)</p>
+      "! @raising   zcx_ca_dbacc | <p class="shorttext synchronized" lang="en">CA-TBX exception: Database access</p>
       add_approver
         IMPORTING
           iv_approver   TYPE xubname
@@ -56,7 +56,7 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! @parameter iv_for_last_cycle_only | <p class="shorttext synchronized" lang="en">X = Return only entries of the last cycle</p>
       "! @parameter io_parent              | <p class="shorttext synchronized" lang="en">GUI container for display anywhere, else display in a popup</p>
       "! @parameter iv_cnt_name            | <p class="shorttext synchronized" lang="en">Name of the ALV control/container</p>
-      "! @raising   zcx_ca_appr_hist       | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist       | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       display
         IMPORTING
           iv_obj_name            TYPE text30 OPTIONAL
@@ -70,7 +70,7 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Constructor</p>
       "!
       "! @parameter is_bo_key        | <p class="shorttext synchronized" lang="en">Business object/class key - BOR Compatible</p>
-      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       constructor
         IMPORTING
           is_bo_key TYPE sibflporb
@@ -95,8 +95,8 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! date and time.</p>
       "!
       "! @parameter it_new_approvers | <p class="shorttext synchronized" lang="en">New user Id to be set</p>
-      "! @raising   zcx_ca_param     | <p class="shorttext synchronized" lang="en">Common exception: Parameter error (INHERIT from this excep!)</p>
-      "! @raising   zcx_ca_dbacc     | <p class="shorttext synchronized" lang="en">Common exception: Database access</p>
+      "! @raising   zcx_ca_param     | <p class="shorttext synchronized" lang="en">CA-TBX exception: Parameter error (INHERIT from this excep!)</p>
+      "! @raising   zcx_ca_dbacc     | <p class="shorttext synchronized" lang="en">CA-TBX exception: Database access</p>
       replace_approvers
         IMPORTING
           it_new_approvers TYPE rsec_t_users
@@ -151,8 +151,8 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! @parameter iv_actual_approver | <p class="shorttext synchronized" lang="en">User Id of approving / rejecting person</p>
       "! @parameter iv_approval_result | <p class="shorttext synchronized" lang="en">Approval result (use mo_result_values->*)</p>
       "! @parameter iv_reason          | <p class="shorttext synchronized" lang="en">Reason / comment to approval decision</p>
-      "! @raising   zcx_ca_param       | <p class="shorttext synchronized" lang="en">Common exception: Parameter error (INHERIT from this excep!)</p>
-      "! @raising   zcx_ca_dbacc       | <p class="shorttext synchronized" lang="en">Common exception: Database access</p>
+      "! @raising   zcx_ca_param       | <p class="shorttext synchronized" lang="en">CA-TBX exception: Parameter error (INHERIT from this excep!)</p>
+      "! @raising   zcx_ca_dbacc       | <p class="shorttext synchronized" lang="en">CA-TBX exception: Database access</p>
       write_approval_result
         IMPORTING
           is_appr_seq_key    TYPE zca_s_approval_sequence_key
@@ -198,7 +198,7 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Insert new entry into database table</p>
       "!
       "! @parameter is_new_entry | <p class="shorttext synchronized" lang="en">New approval history entry</p>
-      "! @raising   zcx_ca_dbacc | <p class="shorttext synchronized" lang="en">Common exception: Database access</p>
+      "! @raising   zcx_ca_dbacc | <p class="shorttext synchronized" lang="en">CA-TBX exception: Database access</p>
       insert_new_entry
         IMPORTING
           is_new_entry TYPE zca_apprhist
@@ -209,7 +209,7 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "!
       "! @parameter is_appr_entry_backup | <p class="shorttext synchronized" lang="en">Copy of the last state of the approval entry</p>
       "! @parameter cr_appr_entry        | <p class="shorttext synchronized" lang="en">Approval history entry with changed result values</p>
-      "! @raising   zcx_ca_dbacc         | <p class="shorttext synchronized" lang="en">Common exception: Database access</p>
+      "! @raising   zcx_ca_dbacc         | <p class="shorttext synchronized" lang="en">CA-TBX exception: Database access</p>
       update_result
         IMPORTING
           is_appr_entry_backup TYPE zca_apprhist

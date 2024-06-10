@@ -19,6 +19,19 @@
     <LENG>000006</LENG>
     <OUTPUTLEN>000008</OUTPUTLEN>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>D</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Empfangszeit der Genehmigung</DDTEXT>
+     <REPTEXT>Empfangszeit</REPTEXT>
+     <SCRTEXT_S>Empf.zeit</SCRTEXT_S>
+     <SCRTEXT_M>Empfangszeit</SCRTEXT_M>
+     <SCRTEXT_L>Empfangszeit</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>
