@@ -77,7 +77,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "!
       "! @parameter approval_result  | <p class="shorttext synchronized" lang="en">Approval result</p>
       "! @parameter result           | <p class="shorttext synchronized" lang="en">Icon with quick info</p>
-      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_icon_for_result
         IMPORTING
           approval_result TYPE swf_appres
@@ -90,7 +90,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "!
       "! @parameter approval_result  | <p class="shorttext synchronized" lang="en">Approval result</p>
       "! @parameter result           | <p class="shorttext synchronized" lang="en">Text</p>
-      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_text_for_result
         IMPORTING
           approval_result TYPE swf_appres
@@ -102,7 +102,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Valid approval result passed?</p>
       "!
       "! @parameter approval_result  | <p class="shorttext synchronized" lang="en">Approval result</p>
-      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       is_approval_result_valid FINAL
         IMPORTING
           approval_result TYPE swf_appres

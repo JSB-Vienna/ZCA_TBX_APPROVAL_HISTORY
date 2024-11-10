@@ -4,7 +4,7 @@
   <asx:values>
    <DD02V>
     <TABNAME>ZCA_APPRHIST</TABNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDLANGUAGE>D</DDLANGUAGE>
     <TABCLASS>TRANSP</TABCLASS>
     <CLIDEP>X</CLIDEP>
     <LANGDEP>X</LANGDEP>
@@ -36,7 +36,7 @@
      <PRECFIELD>SIBFLPORB</PRECFIELD>
      <NOTNULL>X</NOTNULL>
      <MASK>      S</MASK>
-     <DDTEXT>Local Persistent Object Reference - BOR Compatible</DDTEXT>
+     <DDTEXT>Lokale Persistente Objektreferenz - BOR kompatibel</DDTEXT>
      <COMPTYPE>S</COMPTYPE>
      <GROUPNAME>S_KEY</GROUPNAME>
     </DD03P>
@@ -84,6 +84,15 @@
      <COMPTYPE>E</COMPTYPE>
     </DD03P>
    </DD03P_TABLE>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD02_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Approval history of any scenario</DDTEXT>
+    </item>
+   </DD02_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

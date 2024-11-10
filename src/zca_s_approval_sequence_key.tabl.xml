@@ -4,7 +4,7 @@
   <asx:values>
    <DD02V>
     <TABNAME>ZCA_S_APPROVAL_SEQUENCE_KEY</TABNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDLANGUAGE>D</DDLANGUAGE>
     <TABCLASS>INTTAB</TABCLASS>
     <DDTEXT>CA-TBX: Key to identify receiver for approval</DDTEXT>
     <MASTERLANG>E</MASTERLANG>
@@ -33,6 +33,15 @@
      <COMPTYPE>E</COMPTYPE>
     </DD03P>
    </DD03P_TABLE>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD02_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Key to identify receiver for approval</DDTEXT>
+    </item>
+   </DD02_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

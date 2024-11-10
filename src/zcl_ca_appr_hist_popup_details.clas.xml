@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_APPR_HIST_POPUP_DETAILS</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Popup to display details of approval history</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -15,18 +15,18 @@
     <item>
      <ID>I</ID>
      <KEY>HDR</KEY>
-     <ENTRY>Approval history for</ENTRY>
+     <ENTRY>Freigabehistorie zu</ENTRY>
      <LENGTH>70</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
-     <LANGUAGE>D</LANGUAGE>
+     <LANGUAGE>E</LANGUAGE>
      <TEXTPOOL>
       <item>
        <ID>I</ID>
        <KEY>HDR</KEY>
-       <ENTRY>Freigabehistorie zu</ENTRY>
+       <ENTRY>Approval history for</ENTRY>
        <LENGTH>70</LENGTH>
       </item>
      </TEXTPOOL>
@@ -54,11 +54,27 @@
      </TEXTPOOL>
     </item>
    </I18N_TPOOL>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Popup to display details of approval history</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_ALV_APPR_LIST</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: ALV list with approval history</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MO_ALV_APPR_LIST</CMPNAME>
@@ -67,8 +83,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MO_APPR_HIST</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_APPR_HIST</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_OBJ_NAME</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Object name as addition for the title</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MV_OBJ_NAME</CMPNAME>
@@ -80,8 +106,20 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>IO_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_OBJ_NAME</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Object name as addition for the title</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -92,8 +130,14 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>

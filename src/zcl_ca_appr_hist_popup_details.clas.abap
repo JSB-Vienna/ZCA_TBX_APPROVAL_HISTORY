@@ -10,7 +10,7 @@ CLASS zcl_ca_appr_hist_popup_details DEFINITION PUBLIC
       "!
       "! @parameter io_appr_hist     | <p class="shorttext synchronized" lang="en">CA-TBX: Handler for approval history</p>
       "! @parameter iv_obj_name      | <p class="shorttext synchronized" lang="en">Object name as addition for the title</p>
-      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">Common exception: Error while handling approval history</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       constructor
         IMPORTING
           io_appr_hist TYPE REF TO zcl_ca_appr_hist

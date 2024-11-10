@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_C_APPROVAL_RESULT</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Constants for approval history result</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -15,78 +15,78 @@
     <item>
      <ID>I</ID>
      <KEY>AIO</KEY>
-     <ENTRY>Approval is open</ENTRY>
+     <ENTRY>Genhmigung ist offen</ENTRY>
      <LENGTH>26</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>APR</KEY>
-     <ENTRY>Approved</ENTRY>
+     <ENTRY>Genehmigt</ENTRY>
      <LENGTH>18</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OAP</KEY>
-     <ENTRY>Object is approved</ENTRY>
+     <ENTRY>Objekt ist genehmigt</ENTRY>
      <LENGTH>28</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OPN</KEY>
-     <ENTRY>Open</ENTRY>
+     <ENTRY>Offen</ENTRY>
      <LENGTH>14</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>ORJ</KEY>
-     <ENTRY>Object is rejected</ENTRY>
+     <ENTRY>Objekt ist abgelehnt</ENTRY>
      <LENGTH>28</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>REJ</KEY>
-     <ENTRY>Rejected</ENTRY>
+     <ENTRY>Abgelehnt</ENTRY>
      <LENGTH>18</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
-     <LANGUAGE>D</LANGUAGE>
+     <LANGUAGE>E</LANGUAGE>
      <TEXTPOOL>
       <item>
        <ID>I</ID>
        <KEY>AIO</KEY>
-       <ENTRY>Freigabe ist offen</ENTRY>
+       <ENTRY>Approval is open</ENTRY>
        <LENGTH>26</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>APR</KEY>
-       <ENTRY>Freigegeben</ENTRY>
+       <ENTRY>Approved</ENTRY>
        <LENGTH>18</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OAP</KEY>
-       <ENTRY>Objekt ist freigegeben</ENTRY>
+       <ENTRY>Object is approved</ENTRY>
        <LENGTH>28</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OPN</KEY>
-       <ENTRY>Offen</ENTRY>
+       <ENTRY>Open</ENTRY>
        <LENGTH>14</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>ORJ</KEY>
-       <ENTRY>Objekt ist abgelehnt</ENTRY>
+       <ENTRY>Object is rejected</ENTRY>
        <LENGTH>28</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>REJ</KEY>
-       <ENTRY>Abgelehnt</ENTRY>
+       <ENTRY>Rejected</ENTRY>
        <LENGTH>18</LENGTH>
       </item>
      </TEXTPOOL>
@@ -174,11 +174,27 @@
      </TEXTPOOL>
     </item>
    </I18N_TPOOL>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants for approval history result</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>APPROVAL_RESULT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result: Technical values</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>APPROVAL_RESULT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Approval result: Technical values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>APPROVAL_TEXT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result: Textual values</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>APPROVAL_TEXT</CMPNAME>
@@ -187,8 +203,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>COLUMN_NAME</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Column names for approval list</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COLUMN_NAME</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Column names for approval list</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -197,8 +223,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Convert approval result into an icon with quick info</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Convert approval result into an icon with quick info</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Get instance</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>
@@ -207,8 +243,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Convert approval result into a text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Convert approval result into a text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Valid approval result passed?</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
@@ -217,8 +263,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>RESULT_ICON</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result: Textual values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RESULT_ICON</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Approval result: Textual values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SINGLETON_INSTANCE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Instance of the class itself</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SINGLETON_INSTANCE</CMPNAME>
@@ -230,8 +286,20 @@
     <SEOSUBCOTX>
      <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
      <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Icon with quick info</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
@@ -242,8 +310,20 @@
     <SEOSUBCOTX>
      <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ICON_FOR_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Class instance</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>
@@ -254,8 +334,20 @@
     <SEOSUBCOTX>
      <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
      <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Approval result</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
@@ -266,8 +358,20 @@
     <SEOSUBCOTX>
      <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_FOR_RESULT</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <SCONAME>APPROVAL_RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval result</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
@@ -278,8 +382,14 @@
     <SEOSUBCOTX>
      <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_APPROVAL_RESULT_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Common exception: Error while handling approval history</DESCRIPT>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>

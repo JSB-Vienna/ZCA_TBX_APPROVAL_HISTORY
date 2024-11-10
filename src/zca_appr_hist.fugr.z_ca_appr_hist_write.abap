@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">Common object: Approval history write new entries</p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX: Approval history write new entries</p>
 FUNCTION z_ca_appr_hist_write.
 *"----------------------------------------------------------------------
 *"*"Update Function Module:

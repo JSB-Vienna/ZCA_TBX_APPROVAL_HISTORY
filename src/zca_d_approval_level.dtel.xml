@@ -4,31 +4,31 @@
   <asx:values>
    <DD04V>
     <ROLLNAME>ZCA_D_APPROVAL_LEVEL</ROLLNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDLANGUAGE>D</DDLANGUAGE>
     <DOMNAME>ZCA_APPROVAL_LEVEL</DOMNAME>
     <HEADLEN>10</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>15</SCRLEN2>
     <SCRLEN3>20</SCRLEN3>
-    <DDTEXT>CA-TBX: Approvel level</DDTEXT>
-    <REPTEXT>Appr lvl</REPTEXT>
-    <SCRTEXT_S>Appr level</SCRTEXT_S>
-    <SCRTEXT_M>Approval level</SCRTEXT_M>
-    <SCRTEXT_L>Approval level</SCRTEXT_L>
+    <DDTEXT>CA-TBX: Freigabestufe</DDTEXT>
+    <REPTEXT>Freigstufe</REPTEXT>
+    <SCRTEXT_S>Freigstufe</SCRTEXT_S>
+    <SCRTEXT_M>Freigabestufe</SCRTEXT_M>
+    <SCRTEXT_L>Freigabestufe</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
    <I18N_LANGS>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
-     <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Freigabestufe</DDTEXT>
-     <REPTEXT>Freigstufe</REPTEXT>
-     <SCRTEXT_S>Freigstufe</SCRTEXT_S>
-     <SCRTEXT_M>Freigabestufe</SCRTEXT_M>
-     <SCRTEXT_L>Freigabestufe</SCRTEXT_L>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Approvel level</DDTEXT>
+     <REPTEXT>Appr lvl</REPTEXT>
+     <SCRTEXT_S>Appr level</SCRTEXT_S>
+     <SCRTEXT_M>Approval level</SCRTEXT_M>
+     <SCRTEXT_L>Approval level</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

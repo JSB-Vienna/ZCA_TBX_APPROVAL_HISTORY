@@ -4,18 +4,34 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_APPR_HIST_ALV</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: ALV list with approval history</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: ALV list with approval history</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MO_APPR_HIST</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Handler for approval history</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MO_APPR_HIST</CMPNAME>
@@ -24,8 +40,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MS_POPUP_CORNERS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Definition of the popup corner points</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_POPUP_CORNERS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Definition of the popup corner points</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MT_APPROVAL_LIST</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval history data prepared for output</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MT_APPROVAL_LIST</CMPNAME>
@@ -34,8 +60,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MV_FOR_LAST_CYCLE_ONLY</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Activate ALV filter to display only the last cycle</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_FOR_LAST_CYCLE_ONLY</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>X = Activate ALV filter to display only the last cycle</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_OBJ_NAME</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Object name as addition for the title</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MV_OBJ_NAME</CMPNAME>
@@ -47,8 +83,20 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>IO_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Approval history handler</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Approval history handler</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IO_PARENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>GUI Container to display</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -59,8 +107,20 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>IS_POPUP_CORNERS</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Definition of the popup corner points/</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IS_POPUP_CORNERS</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Definition of the popup corner points/</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_CNT_NAME</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Name of the ALV control/container</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -71,8 +131,20 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_OBJ_NAME</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
