@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_APPR_HIST_POPUP_DETAILS</CLSNAME>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <DESCRIPT>CA-TBX: Popup to display details of approval history</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -15,18 +15,18 @@
     <item>
      <ID>I</ID>
      <KEY>HDR</KEY>
-     <ENTRY>Freigabehistorie zu</ENTRY>
+     <ENTRY>Approval history for</ENTRY>
      <LENGTH>70</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
-     <LANGUAGE>E</LANGUAGE>
+     <LANGUAGE>D</LANGUAGE>
      <TEXTPOOL>
       <item>
        <ID>I</ID>
        <KEY>HDR</KEY>
-       <ENTRY>Approval history for</ENTRY>
+       <ENTRY>Freigabehistorie zu</ENTRY>
        <LENGTH>70</LENGTH>
       </item>
      </TEXTPOOL>
@@ -56,7 +56,7 @@
    </I18N_TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
-     <LANGU>E</LANGU>
+     <LANGU>D</LANGU>
      <DESCRIPT>CA-TBX: Popup to display details of approval history</DESCRIPT>
     </SEOCLASSTX>
    </DESCRIPTIONS_CLASS>

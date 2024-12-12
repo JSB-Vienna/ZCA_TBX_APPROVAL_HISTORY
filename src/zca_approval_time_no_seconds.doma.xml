@@ -4,20 +4,20 @@
   <asx:values>
    <DD01V>
     <DOMNAME>ZCA_APPROVAL_TIME_NO_SECONDS</DOMNAME>
-    <DDLANGUAGE>D</DDLANGUAGE>
+    <DDLANGUAGE>E</DDLANGUAGE>
     <DATATYPE>NUMC</DATATYPE>
     <LENG>000004</LENG>
     <OUTPUTLEN>000005</OUTPUTLEN>
     <CONVEXIT>TIMTV</CONVEXIT>
-    <DDTEXT>CA-TBX: Uhrzeit der Genehmigung (ohne Sekunden)</DDTEXT>
+    <DDTEXT>CA-TBX: Approval time (no seconds)</DDTEXT>
    </DD01V>
    <I18N_LANGS>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
    </I18N_LANGS>
    <DD01_TEXTS>
     <item>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Approval time (no seconds)</DDTEXT>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Uhrzeit der Genehmigung (ohne Sekunden)</DDTEXT>
     </item>
    </DD01_TEXTS>
   </asx:values>

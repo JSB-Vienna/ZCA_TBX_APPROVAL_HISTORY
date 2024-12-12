@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_C_APPROVAL_RESULT</CLSNAME>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <DESCRIPT>CA-TBX: Constants for approval history result</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -15,78 +15,78 @@
     <item>
      <ID>I</ID>
      <KEY>AIO</KEY>
-     <ENTRY>Genhmigung ist offen</ENTRY>
+     <ENTRY>Approval is open</ENTRY>
      <LENGTH>26</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>APR</KEY>
-     <ENTRY>Genehmigt</ENTRY>
+     <ENTRY>Approved</ENTRY>
      <LENGTH>18</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OAP</KEY>
-     <ENTRY>Objekt ist genehmigt</ENTRY>
+     <ENTRY>Object is approved</ENTRY>
      <LENGTH>28</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OPN</KEY>
-     <ENTRY>Offen</ENTRY>
+     <ENTRY>Open</ENTRY>
      <LENGTH>14</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>ORJ</KEY>
-     <ENTRY>Objekt ist abgelehnt</ENTRY>
+     <ENTRY>Object is rejected</ENTRY>
      <LENGTH>28</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>REJ</KEY>
-     <ENTRY>Abgelehnt</ENTRY>
+     <ENTRY>Rejected</ENTRY>
      <LENGTH>18</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
-     <LANGUAGE>E</LANGUAGE>
+     <LANGUAGE>D</LANGUAGE>
      <TEXTPOOL>
       <item>
        <ID>I</ID>
        <KEY>AIO</KEY>
-       <ENTRY>Approval is open</ENTRY>
+       <ENTRY>Genhmigung ist offen</ENTRY>
        <LENGTH>26</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>APR</KEY>
-       <ENTRY>Approved</ENTRY>
+       <ENTRY>Genehmigt</ENTRY>
        <LENGTH>18</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OAP</KEY>
-       <ENTRY>Object is approved</ENTRY>
+       <ENTRY>Objekt ist genehmigt</ENTRY>
        <LENGTH>28</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OPN</KEY>
-       <ENTRY>Open</ENTRY>
+       <ENTRY>Offen</ENTRY>
        <LENGTH>14</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>ORJ</KEY>
-       <ENTRY>Object is rejected</ENTRY>
+       <ENTRY>Objekt ist abgelehnt</ENTRY>
        <LENGTH>28</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>REJ</KEY>
-       <ENTRY>Rejected</ENTRY>
+       <ENTRY>Abgelehnt</ENTRY>
        <LENGTH>18</LENGTH>
       </item>
      </TEXTPOOL>
@@ -176,7 +176,7 @@
    </I18N_TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
-     <LANGU>E</LANGU>
+     <LANGU>D</LANGU>
      <DESCRIPT>CA-TBX: Constants for approval history result</DESCRIPT>
     </SEOCLASSTX>
    </DESCRIPTIONS_CLASS>
