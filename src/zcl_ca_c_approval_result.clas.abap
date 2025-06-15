@@ -8,11 +8,13 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Approval result: Technical values</p>
       BEGIN OF approval_result,
         "! <p class="shorttext synchronized" lang="en">Approval result: Open</p>
-        open     TYPE swf_appres VALUE space,
+        open      TYPE zca_d_approval_result VALUE space,
         "! <p class="shorttext synchronized" lang="en">Approval result: Approved</p>
-        approved TYPE swf_appres VALUE '0' ##no_text,
+        approved  TYPE zca_d_approval_result VALUE '0' ##no_text,
         "! <p class="shorttext synchronized" lang="en">Approval result: Rejected</p>
-        rejected TYPE swf_appres VALUE '4' ##no_text,
+        rejected  TYPE zca_d_approval_result VALUE '4' ##no_text,
+        "! <p class="shorttext synchronized" lang="en">Approval result: Approval was restarted</p>
+        restarted TYPE zca_d_approval_result VALUE '8' ##no_text,
       END   OF approval_result,
 
       "! <p class="shorttext synchronized" lang="en">Column names for approval list</p>
@@ -42,21 +44,25 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Approval result: Textual values</p>
       BEGIN OF approval_text READ-ONLY,
         "! <p class="shorttext synchronized" lang="en">Approval result: Open</p>
-        open     TYPE zca_d_text_result,
+        open      TYPE zca_d_text_result,
         "! <p class="shorttext synchronized" lang="en">Approval result: Approved</p>
-        approved TYPE zca_d_text_result,
+        approved  TYPE zca_d_text_result,
         "! <p class="shorttext synchronized" lang="en">Approval result: Rejected</p>
-        rejected TYPE zca_d_text_result,
+        rejected  TYPE zca_d_text_result,
+        "! <p class="shorttext synchronized" lang="en">Approval result: Approval is restarted</p>
+        restarted TYPE zca_d_text_result,
       END   OF approval_text,
 
       "! <p class="shorttext synchronized" lang="en">Approval result: Textual values</p>
       BEGIN OF result_icon READ-ONLY,
         "! <p class="shorttext synchronized" lang="en">Approval result: Open</p>
-        open     TYPE zca_d_icon_result,
+        open      TYPE zca_d_icon_result,
         "! <p class="shorttext synchronized" lang="en">Approval result: Approved</p>
-        approved TYPE zca_d_icon_result,
+        approved  TYPE zca_d_icon_result,
         "! <p class="shorttext synchronized" lang="en">Approval result: Rejected</p>
-        rejected TYPE zca_d_icon_result,
+        rejected  TYPE zca_d_icon_result,
+        "! <p class="shorttext synchronized" lang="en">Approval result: Approval is restarted</p>
+        restarted TYPE zca_d_icon_result,
       END   OF result_icon.
 
 *   s t a t i c   m e t h o d s
@@ -80,7 +86,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_icon_for_result
         IMPORTING
-          approval_result TYPE swf_appres
+          approval_result TYPE zca_d_approval_result
         RETURNING
           VALUE(result)   TYPE zca_d_icon_result
         RAISING
@@ -93,7 +99,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_text_for_result
         IMPORTING
-          approval_result TYPE swf_appres
+          approval_result TYPE zca_d_approval_result
         RETURNING
           VALUE(result)   TYPE zca_d_text_result
         RAISING
@@ -105,7 +111,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
       "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       is_approval_result_valid FINAL
         IMPORTING
-          approval_result TYPE swf_appres
+          approval_result TYPE zca_d_approval_result
         RAISING
           zcx_ca_appr_hist.
 
@@ -122,23 +128,26 @@ ENDCLASS.
 
 
 
-CLASS ZCL_CA_C_APPROVAL_RESULT IMPLEMENTATION.
+CLASS zcl_ca_c_approval_result IMPLEMENTATION.
 
 
   METHOD constructor.
     "-----------------------------------------------------------------*
     "   Constructor
     "-----------------------------------------------------------------*
-    approval_text-open     = 'Open'(opn).
-    approval_text-approved = 'Approved'(apr).
-    approval_text-rejected = 'Rejected'(rej).
+    approval_text-open      = 'Open'(opn).
+    approval_text-approved  = 'Approved'(apr).
+    approval_text-rejected  = 'Rejected'(rej).
+    approval_text-restarted = 'Approval is restarted'(rst).
 
-    result_icon-open     = zcl_ca_utils=>icon_create( iv_icon      = icon_initial
-                                                      iv_quickinfo = 'Approval is open'(aio) ).
-    result_icon-approved = zcl_ca_utils=>icon_create( iv_icon      = icon_allow
-                                                      iv_quickinfo = 'Object is approved'(oap) ).
-    result_icon-rejected = zcl_ca_utils=>icon_create( iv_icon      = icon_reject
-                                                      iv_quickinfo = 'Object is rejected'(orj) ).
+    result_icon-open      = zcl_ca_utils=>icon_create( iv_icon      = icon_initial
+                                                       iv_quickinfo = 'Approval is open'(aio) ).
+    result_icon-approved  = zcl_ca_utils=>icon_create( iv_icon      = icon_allow
+                                                       iv_quickinfo = 'Object is approved'(oap) ).
+    result_icon-rejected  = zcl_ca_utils=>icon_create( iv_icon      = icon_reject
+                                                       iv_quickinfo = 'Object is rejected'(orj) ).
+    result_icon-restarted = zcl_ca_utils=>icon_create( iv_icon      = icon_system_redo
+                                                      iv_quickinfo = 'Approval is restarted'(rst) ).
   ENDMETHOD.                    "constructor
 
 
@@ -157,6 +166,9 @@ CLASS ZCL_CA_C_APPROVAL_RESULT IMPLEMENTATION.
 
       WHEN me->approval_result-rejected.
         result = result_icon-rejected.
+
+      WHEN me->approval_result-restarted.
+        result = result_icon-restarted.
     ENDCASE.
   ENDMETHOD.                    "get_icon_for_result
 
@@ -188,6 +200,9 @@ CLASS ZCL_CA_C_APPROVAL_RESULT IMPLEMENTATION.
 
       WHEN me->approval_result-rejected.
         result = approval_text-rejected.
+
+      WHEN me->approval_result-restarted.
+        result = approval_text-restarted.
     ENDCASE.
   ENDMETHOD.                    "get_text_for_result
 
@@ -198,7 +213,8 @@ CLASS ZCL_CA_C_APPROVAL_RESULT IMPLEMENTATION.
     "-----------------------------------------------------------------*
     IF approval_result NE me->approval_result-open     AND
        approval_result NE me->approval_result-approved AND
-       approval_result NE me->approval_result-rejected.
+       approval_result NE me->approval_result-rejected AND
+       approval_result NE me->approval_result-restarted.
       "Parameter '&1' has invalid value '&2'
       RAISE EXCEPTION TYPE zcx_ca_appr_hist
         EXPORTING

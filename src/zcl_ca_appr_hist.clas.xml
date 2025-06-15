@@ -10,7 +10,16 @@
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
    </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>APH</KEY>
+     <ENTRY>Approval history to</ENTRY>
+     <LENGTH>25</LENGTH>
+    </item>
+   </TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
      <LANGU>D</LANGU>
@@ -119,6 +128,11 @@
      <DESCRIPT>Check whether open approvals exist</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Increase cycle counter due to a rejection / restart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>INCREASE_CYCLE_DUE_2_REJECTION</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Increase cycle counter due to a rejection</DESCRIPT>
@@ -126,7 +140,7 @@
     <SEOCOMPOTX>
      <CMPNAME>INCREASE_CYCLE_DUE_2_REJECTION</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Increase cycle counter due to a rejection</DESCRIPT>
+     <DESCRIPT>Increase cycle counter due to a rejection / restart</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
@@ -146,7 +160,7 @@
     <SEOCOMPOTX>
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Check if last approval cycle is rejected</DESCRIPT>
+     <DESCRIPT>Check if last approval cycle is rejected / restarted</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MO_RESULT_VALUES</CMPNAME>
@@ -481,6 +495,12 @@
      <DESCRIPT>Last approval history entry to level</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
      <CMPNAME>HAS_OPEN_APPROVALS</CMPNAME>
      <SCONAME>RESULT</SCONAME>
      <LANGU>D</LANGU>
@@ -491,6 +511,12 @@
      <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>X = Open approvals exist for current level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>INSERT_NEW_ENTRY</CMPNAME>
@@ -526,7 +552,7 @@
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
      <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>X = Last approval cycle is rejected</DESCRIPT>
+     <DESCRIPT>X = Last approval cycle is rejected / restarted</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>REPLACE_APPROVERS</CMPNAME>

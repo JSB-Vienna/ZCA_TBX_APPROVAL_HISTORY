@@ -4,10 +4,6 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
 
 * P U B L I C   S E C T I O N
   PUBLIC SECTION.
-*   i n t e r f a c e s
-    INTERFACES:
-      if_xo_const_message.
-
 *   i n s t a n c e   a t t r i b u t e s
     DATA:
 *     o b j e c t   r e f e r e n c e s
@@ -28,7 +24,6 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Current approval level</p>
       mv_curr_appr_level TYPE zca_d_approval_level READ-ONLY.
 
-
 *   i n s t a n c e   m e t h o d s
     METHODS:
       "! <p class="shorttext synchronized" lang="en">Add approver (= receiver) for next approval level</p>
@@ -47,7 +42,6 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
         RAISING
           zcx_ca_param
           zcx_ca_dbacc,
-
 
       "! <p class="shorttext synchronized" lang="en">Display approval history</p>
       "!
@@ -135,12 +129,21 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
         RETURNING
           VALUE(result) TYPE zca_apprhist,
 
-      "! <p class="shorttext synchronized" lang="en">Increase cycle counter due to a rejection</p>
+      "! <p class="shorttext synchronized" lang="en">Increase cycle counter due to a rejection / restart</p>
+      "!
+      "! @raising   zcx_ca_appr_hist  | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
+      increase_approval_level
+        RETURNING
+          VALUE(result) TYPE zca_s_approval_sequence_key
+        RAISING
+          zcx_ca_appr_hist,
+
+      "! <p class="shorttext synchronized" lang="en">Increase cycle counter due to a rejection / restart</p>
       increase_cycle_due_2_rejection,
 
-      "! <p class="shorttext synchronized" lang="en">Check if last approval cycle is rejected</p>
+      "! <p class="shorttext synchronized" lang="en">Check if last approval cycle is rejected / restarted</p>
       "!
-      "! @parameter result | <p class="shorttext synchronized" lang="en">X = Last approval cycle is rejected</p>
+      "! @parameter result | <p class="shorttext synchronized" lang="en">X = Last approval cycle is rejected / restarted</p>
       is_last_cycle_rejected
         RETURNING
           VALUE(result) TYPE abap_boolean,
@@ -157,7 +160,7 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
         IMPORTING
           is_appr_seq_key    TYPE zca_s_approval_sequence_key
           iv_actual_approver TYPE xubname
-          iv_approval_result TYPE swf_appres
+          iv_approval_result TYPE zca_d_approval_result
           iv_reason          TYPE zca_d_reason_decision OPTIONAL
         RAISING
           zcx_ca_param
@@ -166,19 +169,11 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
 
 * P R O T E C T E D   S E C T I O N
   PROTECTED SECTION.
-*   a l i a s e s
-    ALIASES:
-*     Message types
-      c_msgty_e            FOR  if_xo_const_message~error,
-      c_msgty_i            FOR  if_xo_const_message~info,
-      c_msgty_s            FOR  if_xo_const_message~success,
-      c_msgty_w            FOR  if_xo_const_message~warning.
-
 *   i n s t a n c e   a t t r i b u t e s
     DATA:
 *     s i n g l e   v a l u e s
       "! <p class="shorttext synchronized" lang="en">Last sequential number</p>
-      mv_last_seqno    TYPE tprlfdnr.
+      mv_last_seqno TYPE tprlfdnr.
 
 *   i n s t a n c e   m e t h o d s
     METHODS:
@@ -189,11 +184,14 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "!
       "! @parameter iv_approval_level | <p class="shorttext synchronized" lang="en">Approval level</p>
       "! @parameter result            | <p class="shorttext synchronized" lang="en">Last approval history entry to level</p>
+      "! @raising   zcx_ca_appr_hist  | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_last_entry_to_level
         IMPORTING
           iv_approval_level TYPE zca_d_approval_level
         RETURNING
-          VALUE(result)     TYPE zca_apprhist,
+          VALUE(result)     TYPE zca_apprhist
+        RAISING
+          zcx_ca_appr_hist,
 
       "! <p class="shorttext synchronized" lang="en">Insert new entry into database table</p>
       "!
@@ -237,11 +235,6 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
     "Prepares key exception sequence no. in case no entry is found
     DATA(ls_new_entry) = get_last_entry_to_level( iv_for_level ).
 
-    IF ls_new_entry-approval_level IS INITIAL.
-      ls_new_entry-approval_level += 1.
-      ls_new_entry-approval_level  = |{ ls_new_entry-approval_level ALPHA = OUT }|.
-    ENDIF.
-
     ls_new_entry-seqno              += 1.
     ls_new_entry-receiving_user_id   = iv_approver.
 
@@ -270,7 +263,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
       RAISE EXCEPTION TYPE zcx_ca_appr_hist
         EXPORTING
           textid   = zcx_ca_appr_hist=>param_invalid
-          mv_msgty = c_msgty_e
+          mv_msgty = zcx_ca_appr_hist=>c_msgty_e
           mv_msgv1 = 'IS_BO_KEY-INSTID'
           mv_msgv2 = 'SPACE' ##no_text.
     ENDIF.
@@ -288,7 +281,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
           RAISE EXCEPTION TYPE zcx_ca_appr_hist
             EXPORTING
               textid   = zcx_ca_appr_hist=>bo_not_exist
-              mv_msgty = c_msgty_e
+              mv_msgty = zcx_ca_appr_hist=>c_msgty_e
               mv_msgv1 = CONV #( is_bo_key-typeid ).
         ENDIF.
 
@@ -303,7 +296,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
             RAISE EXCEPTION TYPE zcx_ca_appr_hist
               EXPORTING
                 textid   = zcx_ca_appr_hist=>bo_not_exist
-                mv_msgty = c_msgty_e
+                mv_msgty = zcx_ca_appr_hist=>c_msgty_e
                 mv_msgv1 = CONV #( is_bo_key-typeid ).
         ENDTRY.
 
@@ -312,7 +305,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
         RAISE EXCEPTION TYPE zcx_ca_appr_hist
           EXPORTING
             textid   = zcx_ca_appr_hist=>param_invalid
-            mv_msgty = c_msgty_e
+            mv_msgty = zcx_ca_appr_hist=>c_msgty_e
             mv_msgv1 = 'IS_BO_KEY-CATID' ##no_text
             mv_msgv2 = CONV #( is_bo_key-catid ).
     ENDCASE.
@@ -334,7 +327,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
           RAISE EXCEPTION TYPE zcx_ca_appr_hist
             EXPORTING
               textid   = zcx_ca_appr_hist=>curr_no_entries
-              mv_msgty = c_msgty_s.
+              mv_msgty = zcx_ca_appr_hist=>c_msgty_s.
         ENDIF.
 
         DATA(ls_popup_corners) = is_popup_corners.
@@ -345,22 +338,14 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
                                       ending_at_y   = 16 ).
         ENDIF.
 
-*        IF io_parent IS NOT BOUND.
-*          DATA(lo_popup) = NEW zcl_ca_appr_hist_popup_details( io_appr_hist     = me
-*                                                               iv_obj_name      = iv_obj_name
-*                                                               is_popup_corners = ls_popup_corners ).
-*          lo_popup->display( ).
-*
-*        ELSE.
         NEW zcl_ca_appr_hist_alv( io_appr_hist     = me
                                   iv_obj_name      = iv_obj_name
                                   io_parent        = io_parent
                                   is_popup_corners = ls_popup_corners
                                   iv_cnt_name      = iv_cnt_name )->process( ).
-*        ENDIF.
 
       CATCH zcx_ca_appr_hist INTO DATA(lx_error).
-        MESSAGE lx_error TYPE c_msgty_s DISPLAY LIKE c_msgty_w.
+        MESSAGE lx_error TYPE zcx_ca_appr_hist=>c_msgty_s DISPLAY LIKE zcx_ca_appr_hist=>c_msgty_w.
     ENDTRY.
   ENDMETHOD.                    "display
 
@@ -435,7 +420,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
                AND catid  EQ @ms_bo_key-catid
                              ORDER BY date_received  DESCENDING,     "Date + time include the right sorting
                                       time_received  DESCENDING,     "of cycle and level, except the SEQNO
-                                      seqno          DESCENDING.     "that can different within a second.
+                                      seqno          DESCENDING.     "that can be different within a second.
 
     DATA(lr_appr_hist) = REF #( mt_appr_hist[ 1 ] OPTIONAL ).
     IF lr_appr_hist IS NOT BOUND.
@@ -460,36 +445,80 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
     "   Get approval history data to requested level
     "-----------------------------------------------------------------*
     TRY.
+        IF iv_approval_level  IS INITIAL AND
+           mv_curr_appr_level IS INITIAL.
+          "Increase level before adding new approvers or provide a level
+          RAISE EXCEPTION NEW zcx_ca_appr_hist( textid   = zcx_ca_appr_hist=>increase_level_first
+                                                mv_msgty = zcx_ca_appr_hist=>c_msgty_e ).
+        ENDIF.
+
+        DATA(lv_approval_level) = COND #( WHEN iv_approval_level IS INITIAL
+                                    THEN mv_curr_appr_level
+                                    ELSE iv_approval_level ).
+
         "Table is sorted descending by level and sequence no
         result = mt_appr_hist[ approval_cycle = mv_current_cycle
-                               approval_level = iv_approval_level ].
+                               approval_level = lv_approval_level ].
 
       CATCH cx_sy_itab_line_not_found.
         "Still no history available -> is first approval
         result-s_key          = ms_bo_key.
         result-approval_cycle = mv_current_cycle.
-        result-approval_level = iv_approval_level.
+        result-approval_level = lv_approval_level.
     ENDTRY.
   ENDMETHOD.                    "get_last_entry_to_level
 
 
+  METHOD increase_approval_level.
+    "-----------------------------------------------------------------*
+    "   Increase approval level (if it is a numeric value)
+    "-----------------------------------------------------------------*
+    result = CORRESPONDING #( get_last_entry( ) ).
+    IF result IS INITIAL.
+      result-approval_cycle = mv_current_cycle.
+    ENDIF.
+
+    IF result-approval_level IS INITIAL.
+      result-approval_level = '0000000001'.
+
+    ELSEIF result-approval_level CO '0123456789'.
+      result-approval_level += 1.
+      result-approval_level = |{ result-approval_level ALPHA = IN }|.
+
+    ELSE.
+      "Last approval level (&1) is not numeric, increasing it is not possible
+      RAISE EXCEPTION TYPE zcx_ca_appr_hist
+        EXPORTING
+          textid   = zcx_ca_appr_hist=>increase_level_not_numeric
+          mv_msgty = zcx_ca_appr_hist=>c_msgty_e
+          mv_msgv1 = CONV #( |{ result-approval_level  ALPHA = OUT }| ).
+    ENDIF.
+
+    mv_curr_appr_level = result-approval_level.
+    CLEAR result-seqno.   "Clear for a new level
+  ENDMETHOD.                    "increase_approval_level
+
+
   METHOD increase_cycle_due_2_rejection.
     "-----------------------------------------------------------------*
-    "   Increase cycle counter due to a rejection
+    "   Increase cycle counter due to a rejection / restart
     "-----------------------------------------------------------------*
     IF is_last_cycle_rejected( ).
       mv_current_cycle += 1.
+      CLEAR mv_curr_appr_level.
     ENDIF.
   ENDMETHOD.                    "increase_cycle_due_2_rejection
 
 
   METHOD is_last_cycle_rejected.
     "-----------------------------------------------------------------*
-    "   Check if last approval cycle is rejected
+    "   Check if last approval cycle is rejected / restarted
     "-----------------------------------------------------------------*
     result = abap_false.
     IF line_exists( mt_appr_hist[ approval_cycle  = mv_current_cycle
-                                  approval_result = mo_result_values->approval_result-rejected ] ).
+                                  approval_result = mo_result_values->approval_result-rejected ] ) OR
+       line_exists( mt_appr_hist[ approval_cycle  = mv_current_cycle
+                                  approval_result = mo_result_values->approval_result-restarted ] ).
       result = abap_true.
     ENDIF.
   ENDMETHOD.                    "is_last_cycle_rejected
@@ -510,7 +539,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
       RAISE EXCEPTION TYPE zcx_ca_dbacc
         EXPORTING
           textid   = zcx_ca_dbacc=>insert_failed
-          mv_msgty = c_msgty_e
+          mv_msgty = zcx_ca_dbacc=>c_msgty_e
           mv_msgv1 = 'ZCA_APPRHIST'
           mv_msgv2 = lv_key_for_output(50)
           mv_msgv3 = lv_key_for_output+50(50) ##no_text.
@@ -589,7 +618,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
       RAISE EXCEPTION TYPE zcx_ca_dbacc
         EXPORTING
           textid   = zcx_ca_dbacc=>update_failed
-          mv_msgty = c_msgty_e
+          mv_msgty = zcx_ca_dbacc=>c_msgty_e
           mv_msgv1 = 'ZCA_APPRHIST'
           mv_msgv2 = lv_key_for_output(50)
           mv_msgv3 = lv_key_for_output+50(50) ##no_text.
@@ -610,7 +639,7 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
         RAISE EXCEPTION TYPE zcx_ca_appr_hist
           EXPORTING
             textid   = zcx_ca_appr_hist=>approval_entry_not_found
-            mv_msgty = c_msgty_e
+            mv_msgty = zcx_ca_appr_hist=>c_msgty_e
             mv_msgv1 = CONV #( |{ is_appr_seq_key-approval_level ALPHA = OUT }| )
             mv_msgv2 = CONV #( |{ is_appr_seq_key-approval_cycle ALPHA = OUT }| )
             mv_msgv3 = CONV #( |{ is_appr_seq_key-seqno ALPHA = OUT }| ).

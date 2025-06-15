@@ -30,6 +30,12 @@
      <DOMVALUE_L>4</DOMVALUE_L>
      <DDTEXT>Object was rejected</DDTEXT>
     </DD07V>
+    <DD07V>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DOMVALUE_L>8</DOMVALUE_L>
+     <DDTEXT>Approval is restarted</DDTEXT>
+    </DD07V>
    </DD07V_TAB>
    <I18N_LANGS>
     <LANGU>D</LANGU>
@@ -77,6 +83,17 @@
      <DDLANGUAGE>W</DDLANGUAGE>
      <DOMVALUE_L>4</DOMVALUE_L>
      <DDTEXT>Обектът беше отхвърлен</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>D</DDLANGUAGE>
+     <DOMVALUE_L>8</DOMVALUE_L>
+     <DDTEXT>Neustart der Genehmigung</DDTEXT>
+    </item>
+    <item>
+     <VALPOS>0004</VALPOS>
+     <DDLANGUAGE>W</DDLANGUAGE>
+     <DOMVALUE_L>8</DOMVALUE_L>
     </item>
    </DD07_TEXTS>
   </asx:values>

@@ -61,6 +61,24 @@ public section.
         attr4 TYPE scx_attrname VALUE '',
       END OF last_level_achieved .
   constants:
+    BEGIN OF increase_level_not_numeric,
+        msgid TYPE symsgid VALUE 'ZCA_TOOLBOX',
+        msgno TYPE symsgno VALUE '125',
+        attr1 TYPE scx_attrname VALUE 'MV_MSGV1',
+        attr2 TYPE scx_attrname VALUE '',
+        attr3 TYPE scx_attrname VALUE '',
+        attr4 TYPE scx_attrname VALUE '',
+      END OF increase_level_not_numeric .
+  constants:
+    begin of increase_level_first,
+      msgid type symsgid value 'ZCA_TOOLBOX',
+      msgno type symsgno value '127',
+      attr1 type scx_attrname value '',
+      attr2 type scx_attrname value '',
+      attr3 type scx_attrname value '',
+      attr4 type scx_attrname value '',
+    end of increase_level_first .
+  constants:
     begin of APPROVAL_ENTRY_NOT_FOUND,
       msgid type symsgid value 'ZCA_TOOLBOX',
       msgno type symsgno value '089',

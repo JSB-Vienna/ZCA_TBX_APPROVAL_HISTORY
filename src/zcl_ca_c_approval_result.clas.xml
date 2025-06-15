@@ -16,37 +16,43 @@
      <ID>I</ID>
      <KEY>AIO</KEY>
      <ENTRY>Approval is open</ENTRY>
-     <LENGTH>26</LENGTH>
+     <LENGTH>30</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>APR</KEY>
      <ENTRY>Approved</ENTRY>
-     <LENGTH>18</LENGTH>
+     <LENGTH>30</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OAP</KEY>
      <ENTRY>Object is approved</ENTRY>
-     <LENGTH>28</LENGTH>
+     <LENGTH>30</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>OPN</KEY>
      <ENTRY>Open</ENTRY>
-     <LENGTH>14</LENGTH>
+     <LENGTH>30</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>ORJ</KEY>
      <ENTRY>Object is rejected</ENTRY>
-     <LENGTH>28</LENGTH>
+     <LENGTH>30</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>REJ</KEY>
      <ENTRY>Rejected</ENTRY>
-     <LENGTH>18</LENGTH>
+     <LENGTH>30</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>RST</KEY>
+     <ENTRY>Approval is restarted</ENTRY>
+     <LENGTH>30</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
