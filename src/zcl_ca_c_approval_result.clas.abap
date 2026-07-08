@@ -13,7 +13,7 @@ CLASS zcl_ca_c_approval_result DEFINITION PUBLIC
         approved  TYPE zca_d_approval_result VALUE '0' ##no_text,
         "! <p class="shorttext synchronized" lang="en">Approval result: Rejected</p>
         rejected  TYPE zca_d_approval_result VALUE '4' ##no_text,
-        "! <p class="shorttext synchronized" lang="en">Approval result: Approval was restarted</p>
+        "! <p class="shorttext synchronized" lang="en">Approval result: Approval was cancelled / restarted</p>
         restarted TYPE zca_d_approval_result VALUE '8' ##no_text,
       END   OF approval_result,
 
@@ -138,7 +138,7 @@ CLASS zcl_ca_c_approval_result IMPLEMENTATION.
     approval_text-open      = 'Open'(opn).
     approval_text-approved  = 'Approved'(apr).
     approval_text-rejected  = 'Rejected'(rej).
-    approval_text-restarted = 'Approval is restarted'(rst).
+    approval_text-restarted = 'Cancelled or restarted'(rst).
 
     result_icon-open      = zcl_ca_utils=>icon_create( iv_icon      = icon_initial
                                                        iv_quickinfo = 'Approval is open'(aio) ).
@@ -147,7 +147,7 @@ CLASS zcl_ca_c_approval_result IMPLEMENTATION.
     result_icon-rejected  = zcl_ca_utils=>icon_create( iv_icon      = icon_reject
                                                        iv_quickinfo = 'Object is rejected'(orj) ).
     result_icon-restarted = zcl_ca_utils=>icon_create( iv_icon      = icon_system_redo
-                                                      iv_quickinfo = 'Approval is restarted'(rst) ).
+                                                      iv_quickinfo = 'Cancelled or restarted'(rst) ).
   ENDMETHOD.                    "constructor
 
 

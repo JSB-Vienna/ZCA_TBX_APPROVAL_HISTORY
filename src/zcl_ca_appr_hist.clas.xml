@@ -15,11 +15,24 @@
    <TPOOL>
     <item>
      <ID>I</ID>
-     <KEY>APH</KEY>
-     <ENTRY>Approval history to</ENTRY>
+     <KEY>APT</KEY>
+     <ENTRY>Approvals to</ENTRY>
      <LENGTH>25</LENGTH>
     </item>
    </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>APT</KEY>
+       <ENTRY>Genehmigungen zu</ENTRY>
+       <LENGTH>25</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
      <LANGU>D</LANGU>
@@ -78,6 +91,11 @@
      <DESCRIPT>Get prepared data for output in descending order</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>GET_CURRENT_APPROVAL_STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get current approval status incl. text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>GET_CURRENT_CYCLE_N_LEVEL</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Get current approval cycle and level</DESCRIPT>
@@ -129,13 +147,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Increase cycle counter due to a rejection / restart</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Increase cycle counter due to a rejection / restart</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>INCREASE_CYCLE_DUE_2_REJECTION</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Increase cycle counter due to a rejection</DESCRIPT>
+     <DESCRIPT>Increase cycle counter due to a rejection / restart</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>INCREASE_CYCLE_DUE_2_REJECTION</CMPNAME>
@@ -155,7 +178,7 @@
     <SEOCOMPOTX>
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Check if last approval cycle is rejected</DESCRIPT>
+     <DESCRIPT>Check if last approval cycle is rejected / restarted</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
@@ -231,6 +254,11 @@
      <CMPNAME>REPLACE_APPROVERS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Replacing approvers in open approval history entries</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_APPROVAL_STATUS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current approval status</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>UPDATE_RESULT</CMPNAME>
@@ -342,13 +370,13 @@
      <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>IO_PARENT</SCONAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>GUI container for display anywhere, else display in a popup</DESCRIPT>
+     <DESCRIPT>GUI container for display in a control structure</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>IO_PARENT</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>GUI container for display anywhere, else display in a popup</DESCRIPT>
+     <DESCRIPT>GUI container for display in a control structure</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
@@ -376,6 +404,18 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_DISPLAY_IN_POPUP</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_DISPLAY_IN_POPUP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
      <LANGU>D</LANGU>
      <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
@@ -390,13 +430,25 @@
      <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>IV_OBJ_NAME</SCONAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
      <SCONAME>IV_OBJ_NAME</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_USE_OBJ_NAME_AS_IS</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>DISPLAY</CMPNAME>
+     <SCONAME>IV_USE_OBJ_NAME_AS_IS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>DISPLAY</CMPNAME>
@@ -424,6 +476,12 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
+     <SCONAME>IV_FOR_CYCLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Id of a specific cycle</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
      <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
      <LANGU>D</LANGU>
      <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
@@ -445,6 +503,24 @@
      <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Prepared approval history data in descending order</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_APPROVAL_LIST_FOR_DISPLAY</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CURRENT_APPROVAL_STATUS</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Current approval status n text</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_CURRENT_APPROVAL_STATUS</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_CURRENT_CYCLE_N_LEVEL</CMPNAME>
@@ -497,6 +573,12 @@
     <SEOSUBCOTX>
      <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
      <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LAST_ENTRY_TO_LEVEL</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
@@ -511,6 +593,12 @@
      <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>X = Open approvals exist for current level</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>INCREASE_APPROVAL_LEVEL</CMPNAME>
@@ -546,7 +634,7 @@
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>
      <SCONAME>RESULT</SCONAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>X = Last approval cycle is rejected</DESCRIPT>
+     <DESCRIPT>X = Last approval cycle is rejected / restarted</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>IS_LAST_CYCLE_REJECTED</CMPNAME>

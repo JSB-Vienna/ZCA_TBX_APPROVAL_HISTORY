@@ -59,6 +59,16 @@
      <DESCRIPT>Approval history data prepared for output</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>MV_DISPLAY_IN_POPUP</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_DISPLAY_IN_POPUP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>MV_FOR_LAST_CYCLE_ONLY</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>X = Activate ALV filter to display only the last cycle</DESCRIPT>
@@ -71,12 +81,22 @@
     <SEOCOMPOTX>
      <CMPNAME>MV_OBJ_NAME</CMPNAME>
      <LANGU>D</LANGU>
-     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MV_OBJ_NAME</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Object name as addition for the title</DESCRIPT>
+     <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_USE_OBJ_NAME_AS_IS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_USE_OBJ_NAME_AS_IS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>
@@ -130,6 +150,18 @@
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_DISPLAY_IN_POPUP</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_DISPLAY_IN_POPUP</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Display history in a popup</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>IV_FOR_LAST_CYCLE_ONLY</SCONAME>
      <LANGU>D</LANGU>
      <DESCRIPT>X = Return only entries of the last cycle</DESCRIPT>
@@ -151,6 +183,24 @@
      <SCONAME>IV_OBJ_NAME</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Object descr. for list header (will be enhanced by obj. key)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_USE_OBJ_NAME_AS_IS</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>IV_USE_OBJ_NAME_AS_IS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Use text in IV_OBJ_NAME as it is passed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_APPR_HIST</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: Error while handling approval history</DESCRIPT>
     </SEOSUBCOTX>
    </DESCRIPTIONS_SUB>
   </asx:values>

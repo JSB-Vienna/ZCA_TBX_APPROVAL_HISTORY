@@ -99,10 +99,10 @@ CLASS ltc_add_approver IMPLEMENTATION.
       mo_cut->increase_approval_level( ).
 
       CLEAR lt_approver_4_level.
-      LOOP AT lt_approver INTO DATA(ls_approver) TO 5.
+      LOOP AT lt_approver INTO DATA(ls_approver) TO 5.  "#EC CI_NOORDER
         APPEND ls_approver TO lt_approver_4_level.
       ENDLOOP.
-      DELETE lt_approver TO 5.
+      DELETE lt_approver TO 5.                          "#EC CI_NOORDER
 
 
       LOOP AT lt_approver_4_level REFERENCE INTO DATA(lr_approver_4_level).
@@ -137,7 +137,7 @@ CLASS ltc_add_approver IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Select randomly dialog users for testing
     "-----------------------------------------------------------------*
-    SELECT FROM usr02
+    SELECT FROM usr02                 "#EC CI_GENBUFF   "#EC CI_NOORDER
          FIELDS @swfco_org_user AS otype,
                 bname AS objid
           WHERE gltgv LE @sy-datlo

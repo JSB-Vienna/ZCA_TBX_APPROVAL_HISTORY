@@ -4,6 +4,14 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
 
 * P U B L I C   S E C T I O N
   PUBLIC SECTION.
+*   t y p e   d e f i n i t i o n s
+    TYPES:
+      "! <p class="shorttext synchronized" lang="en">Current approval status</p>
+      BEGIN OF ty_s_approval_status,
+        result TYPE zca_d_approval_result,
+        descr  TYPE zca_wf_e_descr_very_short,
+      END   OF ty_s_approval_status.
+
 *   i n s t a n c e   a t t r i b u t e s
     DATA:
 *     o b j e c t   r e f e r e n c e s
@@ -45,18 +53,22 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
 
       "! <p class="shorttext synchronized" lang="en">Display approval history</p>
       "!
-      "! @parameter iv_obj_name            | <p class="shorttext synchronized" lang="en">Object name as addition for the title</p>
-      "! @parameter is_popup_corners       | <p class="shorttext synchronized" lang="en">Definition of the popup corner points</p>
+      "! @parameter iv_obj_name            | <p class="shorttext synchronized" lang="en">Object descr. for list header (will be enhanced by obj. key)</p>
+      "! @parameter iv_use_obj_name_as_is  | <p class="shorttext synchronized" lang="en">X = Use text in IV_OBJ_NAME as it is passed</p>
       "! @parameter iv_for_last_cycle_only | <p class="shorttext synchronized" lang="en">X = Return only entries of the last cycle</p>
-      "! @parameter io_parent              | <p class="shorttext synchronized" lang="en">GUI container for display anywhere, else display in a popup</p>
+      "! @parameter io_parent              | <p class="shorttext synchronized" lang="en">GUI container for display in a control structure</p>
+      "! @parameter iv_display_in_popup    | <p class="shorttext synchronized" lang="en">X = Display history in a popup</p>
+      "! @parameter is_popup_corners       | <p class="shorttext synchronized" lang="en">Definition of the popup corner points</p>
       "! @parameter iv_cnt_name            | <p class="shorttext synchronized" lang="en">Name of the ALV control/container</p>
       "! @raising   zcx_ca_appr_hist       | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       display
         IMPORTING
-          iv_obj_name            TYPE text30 OPTIONAL
-          is_popup_corners       TYPE zca_s_scr_fw_popup_corners OPTIONAL
+          iv_obj_name            TYPE lvc_title DEFAULT 'Approvals to'(apt)
+          iv_use_obj_name_as_is  TYPE abap_boolean DEFAULT abap_false
           iv_for_last_cycle_only TYPE abap_boolean DEFAULT abap_true
           io_parent              TYPE REF TO cl_gui_container OPTIONAL
+          iv_display_in_popup    TYPE abap_boolean DEFAULT abap_false
+          is_popup_corners       TYPE zca_s_scr_fw_popup_corners OPTIONAL
           iv_cnt_name            TYPE csequence OPTIONAL
         RAISING
           zcx_ca_appr_hist,
@@ -108,12 +120,27 @@ CLASS zcl_ca_appr_hist DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Get prepared data for output in descending order</p>
       "!
       "! @parameter iv_for_last_cycle_only | <p class="shorttext synchronized" lang="en">X = Return only entries of the last cycle</p>
+      "! @parameter iv_for_cycle           | <p class="shorttext synchronized" lang="en">Id of a specific cycle</p>
       "! @parameter result                 | <p class="shorttext synchronized" lang="en">Prepared approval history data in descending order</p>
+      "! @raising   zcx_ca_appr_hist       | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
       get_approval_list_for_display
         IMPORTING
           iv_for_last_cycle_only TYPE abap_boolean DEFAULT abap_true
+          iv_for_cycle           TYPE zca_d_approval_cycle OPTIONAL
         RETURNING
-          VALUE(result)          TYPE zca_tt_approval_list,
+          VALUE(result)          TYPE zca_tt_approval_list
+        RAISING
+          zcx_ca_appr_hist,
+
+      "! <p class="shorttext synchronized" lang="en">Get current approval status incl. text</p>
+      "!
+      "! @parameter result           | <p class="shorttext synchronized" lang="en">Current approval status n text</p>
+      "! @raising   zcx_ca_appr_hist | <p class="shorttext synchronized" lang="en">CA-TBX exception: Error while handling approval history</p>
+      get_current_approval_status
+        RETURNING
+          VALUE(result) TYPE ty_s_approval_status
+        RAISING
+          zcx_ca_appr_hist,
 
       "! <p class="shorttext synchronized" lang="en">Get current approval cycle and level</p>
       "!
@@ -330,19 +357,13 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
               mv_msgty = zcx_ca_appr_hist=>c_msgty_s.
         ENDIF.
 
-        DATA(ls_popup_corners) = is_popup_corners.
-        IF ls_popup_corners IS INITIAL.
-          ls_popup_corners = VALUE #( starting_at_x = 10
-                                      ending_at_x   = 180
-                                      starting_at_y = 8
-                                      ending_at_y   = 16 ).
-        ENDIF.
-
-        NEW zcl_ca_appr_hist_alv( io_appr_hist     = me
-                                  iv_obj_name      = iv_obj_name
-                                  io_parent        = io_parent
-                                  is_popup_corners = ls_popup_corners
-                                  iv_cnt_name      = iv_cnt_name )->process( ).
+        NEW zcl_ca_appr_hist_alv( io_appr_hist          = me
+                                  iv_obj_name           = iv_obj_name
+                                  iv_use_obj_name_as_is = iv_use_obj_name_as_is
+                                  io_parent             = io_parent
+                                  iv_display_in_popup   = iv_display_in_popup
+                                  is_popup_corners      = is_popup_corners
+                                  iv_cnt_name           = iv_cnt_name )->process( ).
 
       CATCH zcx_ca_appr_hist INTO DATA(lx_error).
         MESSAGE lx_error TYPE zcx_ca_appr_hist=>c_msgty_s DISPLAY LIKE zcx_ca_appr_hist=>c_msgty_w.
@@ -380,7 +401,19 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
     "-----------------------------------------------------------------*
     result = CORRESPONDING #( mt_appr_hist ).
 
-    IF iv_for_last_cycle_only EQ abap_true.
+    IF iv_for_cycle IS SUPPLIED    AND
+       iv_for_cycle IS NOT INITIAL.
+      IF NOT line_exists( result[ approval_cycle = iv_for_cycle ] ).
+        "Cycle &1 not found to &2 &3 in approval history
+        RAISE EXCEPTION TYPE zcx_ca_appr_hist
+          MESSAGE ID 'ZCA_TOOLBOX' TYPE zcx_ca_appr_hist=>c_msgty_e NUMBER '129'
+                WITH iv_for_cycle  ms_bo_key-typeid  ms_bo_key-instid.
+      ENDIF.
+
+      DELETE result WHERE approval_cycle NE iv_for_cycle.
+
+    ELSEIF iv_for_last_cycle_only IS SUPPLIED AND
+           iv_for_last_cycle_only EQ abap_true.
       DELETE result WHERE approval_cycle NE mv_current_cycle.
     ENDIF.
 
@@ -395,6 +428,30 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
       lr_approval->icon_result = mo_result_values->get_icon_for_result( lr_approval->approval_result ).
     ENDLOOP.
   ENDMETHOD.                    "get_approval_list_for_display
+
+
+  METHOD get_current_approval_status.
+    "-----------------------------------------------------------------*
+    "   Get current approval status incl. text
+    "-----------------------------------------------------------------*
+    get( ).
+
+    DATA(lt_approval_list) = get_approval_list_for_display( ).
+    LOOP AT lt_approval_list REFERENCE INTO DATA(lr_approval_result).
+      result = VALUE #( result = lr_approval_result->approval_result
+                        descr  = lr_approval_result->text_result ).
+
+      IF result-result EQ mo_result_values->approval_result-rejected OR
+         result-result EQ mo_result_values->approval_result-restarted.
+        RETURN.
+      ENDIF.
+    ENDLOOP.
+
+    IF result IS INITIAL.
+      result = VALUE #( result = mo_result_values->approval_result-open
+                        descr  = mo_result_values->get_text_for_result( mo_result_values->approval_result-open ) ).
+    ENDIF.
+  ENDMETHOD.                    "get_current_approval_status
 
 
   METHOD get_current_cycle_n_level.
@@ -476,6 +533,10 @@ CLASS zcl_ca_appr_hist IMPLEMENTATION.
     result = CORRESPONDING #( get_last_entry( ) ).
     IF result IS INITIAL.
       result-approval_cycle = mv_current_cycle.
+
+    ELSEIF result-approval_cycle LT mv_current_cycle.
+      "Cycle was increased -> initialize with the new cycle
+      result = VALUE #( approval_cycle = mv_current_cycle ).
     ENDIF.
 
     IF result-approval_level IS INITIAL.

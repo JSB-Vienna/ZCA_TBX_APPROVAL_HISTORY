@@ -51,7 +51,7 @@
     <item>
      <ID>I</ID>
      <KEY>RST</KEY>
-     <ENTRY>Approval is restarted</ENTRY>
+     <ENTRY>Cancelled or restarted</ENTRY>
      <LENGTH>30</LENGTH>
     </item>
    </TPOOL>
@@ -63,37 +63,43 @@
        <ID>I</ID>
        <KEY>AIO</KEY>
        <ENTRY>Genhmigung ist offen</ENTRY>
-       <LENGTH>26</LENGTH>
+       <LENGTH>30</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>APR</KEY>
        <ENTRY>Genehmigt</ENTRY>
-       <LENGTH>18</LENGTH>
+       <LENGTH>30</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OAP</KEY>
        <ENTRY>Objekt ist genehmigt</ENTRY>
-       <LENGTH>28</LENGTH>
+       <LENGTH>30</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>OPN</KEY>
        <ENTRY>Offen</ENTRY>
-       <LENGTH>14</LENGTH>
+       <LENGTH>30</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>ORJ</KEY>
        <ENTRY>Objekt ist abgelehnt</ENTRY>
-       <LENGTH>28</LENGTH>
+       <LENGTH>30</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>REJ</KEY>
        <ENTRY>Abgelehnt</ENTRY>
-       <LENGTH>18</LENGTH>
+       <LENGTH>30</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>RST</KEY>
+       <ENTRY>Abgebrochen oder neu gestartet</ENTRY>
+       <LENGTH>30</LENGTH>
       </item>
      </TEXTPOOL>
     </item>

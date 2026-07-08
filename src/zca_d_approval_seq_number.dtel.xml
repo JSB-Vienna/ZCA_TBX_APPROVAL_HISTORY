@@ -3,18 +3,18 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZCA_D_APPROVAL_LEVEL</ROLLNAME>
+    <ROLLNAME>ZCA_D_APPROVAL_SEQ_NUMBER</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DOMNAME>ZCA_APPROVAL_LEVEL</DOMNAME>
+    <DOMNAME>TPRLFDNR</DOMNAME>
     <HEADLEN>08</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
-    <SCRLEN2>15</SCRLEN2>
-    <SCRLEN3>20</SCRLEN3>
-    <DDTEXT>CA-TBX: Approvel level</DDTEXT>
-    <REPTEXT>Level</REPTEXT>
-    <SCRTEXT_S>Level</SCRTEXT_S>
-    <SCRTEXT_M>Approval level</SCRTEXT_M>
-    <SCRTEXT_L>Approval level</SCRTEXT_L>
+    <SCRLEN2>20</SCRLEN2>
+    <SCRLEN3>40</SCRLEN3>
+    <DDTEXT>CA-TBX: Sequential number of an approver</DDTEXT>
+    <REPTEXT>Seq. Id</REPTEXT>
+    <SCRTEXT_S>Seq. Id</SCRTEXT_S>
+    <SCRTEXT_M>Seq. Id</SCRTEXT_M>
+    <SCRTEXT_L>Seq. Id</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
@@ -24,11 +24,11 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Genehmigungsstufe</DDTEXT>
-     <REPTEXT>Stufe</REPTEXT>
-     <SCRTEXT_S>Stufe</SCRTEXT_S>
-     <SCRTEXT_M>Genehmig.stufe</SCRTEXT_M>
-     <SCRTEXT_L>Genehmigungsstufe</SCRTEXT_L>
+     <DDTEXT>CA-TBX: Laufende Nr. paralleler Genehmiger</DDTEXT>
+     <REPTEXT>Lfd.Nr</REPTEXT>
+     <SCRTEXT_S>Lfd.Nr</SCRTEXT_S>
+     <SCRTEXT_M>Lfd. Nr.</SCRTEXT_M>
+     <SCRTEXT_L>Lfd. Nr.</SCRTEXT_L>
     </item>
    </DD04_TEXTS>
   </asx:values>

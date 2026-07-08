@@ -34,7 +34,7 @@
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>E</DDLANGUAGE>
      <DOMVALUE_L>8</DOMVALUE_L>
-     <DDTEXT>Approval is restarted</DDTEXT>
+     <DDTEXT>Approval was cancelled / restarted</DDTEXT>
     </DD07V>
    </DD07V_TAB>
    <I18N_LANGS>
@@ -44,7 +44,7 @@
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Ergebnis der Entscheidung (genehmigt/abgelehnt)</DDTEXT>
+     <DDTEXT>CA-TBX: Result of decision (approved/rejected)</DDTEXT>
     </item>
     <item>
      <DDLANGUAGE>W</DDLANGUAGE>
@@ -64,7 +64,7 @@
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>0</DOMVALUE_L>
-     <DDTEXT>Objekt wurde genehmigt!</DDTEXT>
+     <DDTEXT>Objekt wurde genehmigt</DDTEXT>
     </item>
     <item>
      <VALPOS>0002</VALPOS>
@@ -76,7 +76,7 @@
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>4</DOMVALUE_L>
-     <DDTEXT>Objekt wurde abgelehnt!</DDTEXT>
+     <DDTEXT>Objekt wurde abgelehnt</DDTEXT>
     </item>
     <item>
      <VALPOS>0003</VALPOS>
@@ -88,7 +88,7 @@
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>8</DOMVALUE_L>
-     <DDTEXT>Neustart der Genehmigung</DDTEXT>
+     <DDTEXT>Abbruch / Neustart der Genehmigung</DDTEXT>
     </item>
     <item>
      <VALPOS>0004</VALPOS>
